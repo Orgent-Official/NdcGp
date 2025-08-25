@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="NdcLogo4848.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Orgent (Ndc) 虚拟股票系统</title>
+		<link rel="stylesheet" type="text/css" href="index_style.css">
+		<script type="text/javascript" src="echarts.js"></script>
+		<script type="text/javascript" src="data.js"></script>
+		<ul class="gray">
+			<li class="av"><img src="NdcLogo4848.ico"></li>
+  			<li class="s"><a>Ndc 虚拟股票系统</a></li>
+  			<li class="av acc"><a href="index.html">主页</a></li>
+  			<li class="av"><a href="news.html">新闻</a></li>
+  			<li class="av"><a href="mygp.html">我的股票</a></li>
+  			<li class="av"><a href="buy.html">购买股票</a></li>
+  			<li class="av"><a href="upld.html">充值</a></li>
+			<li class="av"><a href="chnm.html">更改账户名</a></li>
+  			<li class="rightli av"><a href="https://space.bilibili.com/3461576468203796">Orgent-Ndc出品</a></li>
+  			<li class="rightli s"><a id="cnt"></a></li>
+		</ul>
+		<style>
+        #echarts{
+            display: flex;
+            flex-wrap:wrap;
+            width: 100%;
+            justify-content:space-around;
+        }
+        #first{
+            width: 48%;
+            height: 600px;
+            display: inline-block; 
+            box-shadow: 1px 1px 10px #888888;
+            border-radius: 30px;   
+            margin-top: 20px;
+        }
+        #second{
+            width: 48%;
+            height: 600px;
+            display: inline-block;  
+            border-radius: 30px;   
+            box-shadow: 1px 1px 10px #888888;  
+            margin-top: 20px;
+        }
+        #first1{
+            width: 100%;
+            height: 600px;
+            display: inline-block; 
+            box-shadow: 1px 1px 10px #888888;
+            border-radius: 30px;   
+            margin-top: 20px;
+        }
+        @media screen and (max-width:957px){
+            #first{
+                width: 957px;
+            }
+            #second{
+                width: 957px;
+            }
+        }
+    </style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			if(typeof(Storage)!=="undefined")
+        	{
+        	    if(isNaN(Number(localStorage.money)))
+    			{
+    				localStorage.money=0;
+    			}
+    			if(isNaN(Number(localStorage.sel1)))
+    			{
+    				localStorage.sel1=0;
+    			}
+    			if(isNaN(Number(localStorage.buy1)))
+    			{
+    				localStorage.buy1=0;
+    			}
+    			if(isNaN(Number(localStorage.sel2)))
+    			{
+    				localStorage.sel2=0;
+    			}
+    			if(isNaN(Number(localStorage.buy2)))
+    			{
+    				localStorage.buy2=0;
+    			}
+    			if(isNaN(Number(localStorage.sel3)))
+    			{
+    				localStorage.sel3=0;
+    			}
+    			if(isNaN(Number(localStorage.buy3)))
+    			{
+    				localStorage.buy3=0;
+    			}
+    			if(isNaN(Number(localStorage.nn)))
+    			{
+    				localStorage.nn=1;
+    			}
+    			if(isNaN(Number(localStorage.nq)))
+    			{
+    				localStorage.nq=0;
+    			}
+    			if(Number(localStorage.nn)==1&&Number(localStorage.money)==0)
+    			{
+    				localStorage.name="新用户"+Math.floor(Math.random()*(100000-0+1));
+    				localStorage.nn=0;
+    			}
+        	    document.addEventListener("DOMContentLoaded", function(){
+        	        document.getElementById("cnt").innerText = "你好，"+localStorage.name+"。您还剩余约 " + localStorage.money + " Orgent币。";
+        	        document.getElementById("cnt1").innerText = "您的Ndc ID当前还剩余 " + localStorage.money + " Orgent币。";
+        	    });
+        	}
+        	else
+        	{
+        	    document.addEventListener("DOMContentLoaded", function() {
+        	        alert("您的设备可能不支持 localStorge，暂时无法正常使用 Ndc股票系统。")
+        	    });
+        	}
+		</script>
+		<div id="echarts">
+		<div id="first"></div>
+		<div id="second"></div>
+    <script>
+        window.onresize = function() {
+            myChart1.resize();
+            myChart.resize();
+        };
+        var chartDom = document.getElementById('first');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+        	title: {
+        		text: '市场份额'
+        	},
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            top: '8%',
+            left: 'center'
+        },
+        series: [
+            {
+            name: '市场份额',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                show: true,
+                fontSize: '40',
+                fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                { value: _3l, name: '3L' },
+                { value: utw, name: 'Utw' },
+                { value: ndc, name: 'Ndc' },
+                { value: cwmm, name: 'CWMM' },
+                { value: eug, name: 'Eug' },
+                { value: (_5u+chy+nacl), name: '其他' }
+            ]
+            }
+        ]
+        };
+        option && myChart.setOption(option);
+
+        var chartDom = document.getElementById('second');
+        var myChart1 = echarts.init(chartDom);
+        var option;
+
+        option = {
+			title: {
+				text: '市值走势图'
+			},
+			tooltip: {
+				trigger: 'axis'
+			},
+			legend: {
+				data: ['3L', 'Utw', 'Ndc','CWMM','Eug','Chy','氯化钠','5U']
+			},
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '10%',
+				containLabel: true
+			},
+			xAxis: {
+				type: 'category',
+				boundaryGap: false,
+				data: ['8.20', '8.21', '8.22', '8.23', '8.24', '当前']
+			},
+				yAxis: {
+				type: 'value'
+			},
+			series: [
+			{
+				name: '3L',
+				type: 'line',
+				data: [1703,1502,1200,621,130,_3l]
+			},
+			{
+				name: 'Utw',
+				type: 'line',
+				data: [1954,1742,1756,1699,1540,utw]
+			},
+			{
+				name: 'Ndc',
+				type: 'line',
+				data: [491,492,495,497,502,ndc]
+			},
+			{
+				name: 'CWMM',
+				type: 'line',
+				data: [1021,1000,950,900,880,cwmm]
+			},
+			{
+				name: 'Eug',
+				type: 'line',
+				data: [449,430,390,380,360,eug]
+			},
+			{
+				name: 'Chy',
+				type: 'line',
+				data: [132,119,98,76,43,chy]
+			},
+			{
+				name: '氯化钠',
+				type: 'line',
+				data: [270,230,200,180,165,nacl]
+			},
+			{
+				name: '5U',
+				type: 'line',
+				data: [117,116,117,118,116,_5u]
+			}
+		]
+		};
+        option && myChart1.setOption(option);
+    </script>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+	<center><button class="btn" onclick="javascript:window.location.href='./buy.html';">购买股票</button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <button class="btn" onclick="javascript:window.location.href='./mygp.html';">我的股票</button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <button class="btn" onclick="javascript:window.location.href='./upld.html';">充值</button></center>
+	</body>
+</html>

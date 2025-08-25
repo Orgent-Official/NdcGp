@@ -1,0 +1,145 @@
+ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #f3f3f3;
+      }
+
+      li {
+          float: left;
+      }
+
+      ul.gray {
+        border: 1px solid #e7e7e7;
+          background-color: #f3f3f3;
+      }
+      
+      ul.gray li.av a {
+          display: block;
+          color: #666;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+      }
+
+      ul.gray li.s a {
+          display: block;
+          color: #666;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+      }
+
+      ul.gray li.av img {
+          display: block;
+          color: #666;
+          text-align: center;
+          text-decoration: none;
+      }
+      
+      ul.gray li.av a:hover:not(.active) {
+          background-color: #ddd;
+      }
+
+      ul.gray li.acc a {
+          background-color: #ddd;
+      }
+      
+      ul.gray li.av a.active {
+          color: white;
+          background-color: #008CBA;
+      }
+
+      .rightli {
+        float:right;
+      }
+
+
+.btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: black;
+}
+
+.rounded-image {
+width: 200px;
+height: 200px;
+border-radius: 10px;
+}
+
+h1{
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+}
+
+h3{
+  text-align: center;
+}
+
+h4{
+  text-align: center;
+}
+
+p{
+  text-align: center;
+}
+
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 190px;
+  text-align: center;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #000 solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #000;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: #000;
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: #000;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+  color: #000;
+  transform: translateY(-30px);
+}
