@@ -101,6 +101,18 @@
     			{
     				localStorage.nq=0;
     			}
+				if(isNaN(Number(localStorage.d1)))
+    			{
+    				localStorage.d1=0;
+    			}
+    			if(isNaN(Number(localStorage.d2)))
+    			{
+    				localStorage.d2=0;
+    			}
+    			if(isNaN(Number(localStorage.d3)))
+    			{
+    				localStorage.d3=0;
+    			}
     			if(Number(localStorage.nn)==1&&Number(localStorage.money)==0)
     			{
     				localStorage.name="新用户"+Math.floor(Math.random()*(100000-0+1));
@@ -260,3 +272,4 @@
 	</body>
 
 </html>
+
