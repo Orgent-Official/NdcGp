@@ -1,11 +1,11 @@
-var _3l=21;
-var utw=1600;
-var ndc=502;
-var cwmm=921;
-var chy=50;
-var nacl=45;
-var _5u=110;
-var eug=370;
+var _3l=0;
+var utw=1640;
+var ndc=550;
+var cwmm=922;
+var chy=85;
+var nacl=60;
+var _5u=120;
+var eug=350;
 var l1=130,l2=1540,l3=499,l4=920,l5=370,l6=43,l7=165,l8=116;
 
 
@@ -111,3 +111,4 @@ function buycheckname(id)
 	}
 
 }
+
