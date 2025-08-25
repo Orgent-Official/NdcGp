@@ -28,9 +28,10 @@
     			{
     				localStorage.money=0;
     			}
+        	    let nnn=Number(localStorage.money);
         	    document.addEventListener("DOMContentLoaded", function(){
-        	        document.getElementById("cnt").innerText = "你好，"+localStorage.name+"。您还剩余 " + localStorage.money + " Orgent币。";
-        	        document.getElementById("cnt1").innerText = "您的Ndc ID当前还剩余 " + localStorage.money + " Orgent币。";
+        	        document.getElementById("cnt").innerText = "你好，"+localStorage.name+"。您还剩余约 " + nnn.toFixed(2) + " Orgent币。";
+        	        document.getElementById("cnt1").innerText = "您的Ndc ID当前还剩余 " + nnn.toFixed(2) + " Orgent币。";
         	    });
         	}
         	else
@@ -63,4 +64,5 @@
 		<p>&nbsp;</p>
 		<p id="otp"></p>
 	</body>
+
 </html>
