@@ -6,7 +6,7 @@ var chy=50;
 var nacl=45;
 var _5u=110;
 var eug=370;
-var l1=130,l2=1540,l3=499,l4=43,l5=370,l6=43,l7=165,l8=116;
+var l1=130,l2=1540,l3=499,l4=920,l5=370,l6=43,l7=165,l8=116;
 
 
 function buychecknowprice(id)
@@ -109,4 +109,5 @@ function buycheckname(id)
 		return "5U  (" + String(buychecknowprice(id)-buycheckpastprice(id)) + ") 编号：" + String(id);
 		break;
 	}
+
 }
