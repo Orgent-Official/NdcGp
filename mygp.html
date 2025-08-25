@@ -128,7 +128,7 @@
                     },
                     {
                         type: 'bar',
-                        data: [(buychecknowprice(localStorage.sel1)/buycheckpastprice(localStorage.sel1)*1.000*localStorage.buy1),(buychecknowprice(localStorage.sel2)/buycheckpastprice(localStorage.sel2)*1.000*localStorage.buy2),(buychecknowprice(localStorage.sel3)/buycheckpastprice(localStorage.sel3)*1.000*localStorage.buy3)]
+                        data: [(buychecknowprice(localStorage.sel1)/localStorage.p1*1.000*localStorage.buy1),(buychecknowprice(localStorage.sel2)/localStorage.p2*1.000*localStorage.buy2),(buychecknowprice(localStorage.sel3)/localStorage.p3*1.000*localStorage.buy3)]
                     }
                 ]  
         };
@@ -168,7 +168,7 @@
                 }
                 const nowPrice = buychecknowprice(sel1);
                 const pastPrice = buycheckpastprice(sel1);
-                const nowValue = (buy1 * nowPrice / pastPrice).toFixed(2);
+                const nowValue = (buy1 * nowPrice / localStorage.p1).toFixed(2);
                 const profit = (nowValue - buy1).toFixed(2); // 盈利/亏损
                 const confirmMsg = `确定卖出股票[${buycheckname(sel1)}]吗？\n` +
                                   `购买金额：${buy1} Orgent币\n` +
@@ -178,6 +178,7 @@
                 localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
                 localStorage.sel1 = 0;
                 localStorage.buy1 = 0;
+                localStorage.p1=0;
                 localStorage.d1=0;
                 hasSold = true;
             }
@@ -190,7 +191,7 @@
                 }
                 const nowPrice = buychecknowprice(sel2);
                 const pastPrice = buycheckpastprice(sel2);
-                const nowValue = (buy2 * nowPrice / pastPrice).toFixed(2);
+                const nowValue = (buy2 * nowPrice / localStorage.p2).toFixed(2);
                 const profit = (nowValue - buy2).toFixed(2);
 
                 const confirmMsg = `确定卖出股票[${buycheckname(sel2)}]吗？\n` +
@@ -202,6 +203,7 @@
                 localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
                 localStorage.sel2 = 0;
                 localStorage.buy2 = 0;
+                localStorage.p2=0;
                 localStorage.d2=0;
                 hasSold = true;
             }
@@ -215,7 +217,7 @@
                 }
                 const nowPrice = buychecknowprice(sel3);
                 const pastPrice = buycheckpastprice(sel3);
-                const nowValue = (buy3 * nowPrice / pastPrice).toFixed(2);
+                const nowValue = (buy3 * nowPrice / localStorage.p3).toFixed(2);
                 const profit = (nowValue - buy3).toFixed(2);
 
                 const confirmMsg = `确定卖出股票 [${buycheckname(sel3)}] 吗？\n` +
@@ -227,6 +229,7 @@
                 localStorage.money = (Number(localStorage.money) + Number(nowValue)).toFixed(2);
                 localStorage.sel3 = 0;
                 localStorage.buy3 = 0;
+                localStorage.p3=0;
                 localStorage.d3=0;
                 hasSold = true;
             }
