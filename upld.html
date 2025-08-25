@@ -50,7 +50,7 @@
         		var value=code.value;
         		if(Number(value)%237==0&&Number(value)>0)
         		{
-        			document.getElementById("otp").innerText = "本兑换码你可以兑换 20 Orgent币。";
+        			document.getElementById("otp").innerText = "本兑换码你可以兑换 5 Orgent币。";
         		}
         		if(isc==true)
         		{
@@ -58,7 +58,7 @@
         			{
         				alert("该兑换码已经被使用，不能用于兑换。");
         			}
-        			else if(Number(value)%237==0&&Number(value)>0&&Number(value)!=Number(localStorage.us))
+        			else if(Number(value)%237==0&&Number(value)>0&&Number(value)!=Number(localStorage.us)&&Number(value)>10000)
         			{
         				document.getElementById("otp").innerText = "本兑换码你可以兑换 5 Orgent币。";
         				localStorage.money=Number(localStorage.money)+5;
@@ -89,4 +89,5 @@
 		<p>&nbsp;</p>
 		<p id="otp"></p>
 	</body>
+
 </html>
