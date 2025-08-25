@@ -51,8 +51,12 @@
         		var value=code.value;
         		if(Number(value)%237==0&&Number(value)>0)
         		{
-        			document.getElementById("otp").innerText = "本兑换码你可以兑换 5 Orgent币。";
+        			document.getElementById("otp").innerText = "本兑换码你可以兑换 10 Orgent币。";
         		}
+				else if(Number(value)%331==0&&Number(value)>0)
+				{
+					document.getElementById("otp").innerText = "本兑换码你可以兑换 50 Orgent币。";
+				}
         		if(isc==true)
         		{
         			if(Number(value)==Number(localStorage.us))
@@ -61,10 +65,19 @@
         			}
         			else if(Number(value)%237==0&&Number(value)>0&&Number(value)!=Number(localStorage.us)&&Number(value)>10000)
         			{
-        				document.getElementById("otp").innerText = "本兑换码你可以兑换 5 Orgent币。";
-        				localStorage.money=Number(localStorage.money)+5;
+        				document.getElementById("otp").innerText = "本兑换码你可以兑换 10 Orgent币。";
+        				localStorage.money=Number(localStorage.money)+10;
         				code.innerText="";;
-        				alert("已成功兑换 5 Orgent币。余额 " + localStorage.money + " Orgent币。")
+        				alert("已成功兑换 10 Orgent币。余额 " + localStorage.money + " Orgent币。")
+        				localStorage.us=value;
+        				window.location.href="./index.html";
+        			}
+					else if(Number(value)%331==0&&Number(value)>0&&Number(value)!=Number(localStorage.us)&&Number(value)>10000)
+        			{
+        				document.getElementById("otp").innerText = "本兑换码你可以兑换 50 Orgent币。";
+        				localStorage.money=Number(localStorage.money)+50;
+        				code.innerText="";;
+        				alert("已成功兑换 50 Orgent币。余额 " + localStorage.money + " Orgent币。")
         				localStorage.us=value;
         				window.location.href="./index.html";
         			}
@@ -92,4 +105,5 @@
 	</body>
 
 </html>
+
 
