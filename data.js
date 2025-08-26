@@ -1,4 +1,4 @@
-var _3l=8; //chpc
+var _3l=118; //AWM
 var utw=1620;
 var ndc=600;
 var cwmm=926;
@@ -17,7 +17,7 @@ function makeop()
 				trigger: 'axis'
 			},
 			legend: {
-				data: ['CHPC', 'Utw', 'Ndc','CWMM','Eug','Chy','PTC','5U']
+				data: ['AWM', 'Utw', 'Ndc','CWMM','Eug','Chy','PTC','5U']
 			},
 			grid: {
 				left: '3%',
@@ -35,9 +35,9 @@ function makeop()
 			},
 			series: [
 			{
-				name: 'CHPC',
+				name: 'AWM',
 				type: 'line',
-				data: [21,20,18,15,12,9,8,_3l]
+				data: [21,56,64,78,92,96,108,_3l]
 			},
 			{
 				name: 'Utw',
@@ -169,5 +169,6 @@ function buycheckname(id)
 	}
 
 }
+
 
 
