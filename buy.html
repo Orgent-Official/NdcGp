@@ -166,7 +166,7 @@
                 show: false
             },
             data: [
-                { value: _3l, name: '3L' },
+                { value: nacl, name: 'PTC' },
                 { value: utw, name: 'Utw' },
                 { value: ndc, name: 'Ndc' },
                 { value: cwmm, name: 'CWMM' },
@@ -180,80 +180,12 @@
 
         var chartDom = document.getElementById('second');
         var myChart1 = echarts.init(chartDom);
-        var option;
-
-        option = {
-			title: {
-				text: '市值走势图'
-			},
-			tooltip: {
-				trigger: 'axis'
-			},
-			legend: {
-				data: ['3L', 'Utw', 'Ndc','CWMM','Eug','Chy','氯化钠','5U']
-			},
-			grid: {
-				left: '3%',
-				right: '4%',
-				bottom: '10%',
-				containLabel: true
-			},
-			xAxis: {
-				type: 'category',
-				boundaryGap: false,
-				data: ['8.20', '8.21', '8.22', '8.23', '8.24','8.25', '8.26', '当前']
-			},
-				yAxis: {
-				type: 'value'
-			},
-			series: [
-			{
-				name: '3L',
-				type: 'line',
-				data: [1703,1502,1200,621,130,21,0,_3l]
-			},
-			{
-				name: 'Utw',
-				type: 'line',
-				data: [1954,1742,1756,1699,1600,1600,1640,utw]
-			},
-			{
-				name: 'Ndc',
-				type: 'line',
-				data: [491,492,495,497,502,520,550,ndc]
-			},
-			{
-				name: 'CWMM',
-				type: 'line',
-				data: [1021,1000,950,900,880,921,922,cwmm]
-			},
-			{
-				name: 'Eug',
-				type: 'line',
-				data: [449,430,390,380,360,370,350,eug]
-			},
-			{
-				name: 'Chy',
-				type: 'line',
-				data: [132,119,98,76,43,50,85,chy]
-			},
-			{
-				name: '氯化钠',
-				type: 'line',
-				data: [270,230,200,180,165,45,60,nacl]
-			},
-			{
-				name: '5U',
-				type: 'line',
-				data: [117,116,117,118,116,110,120,_5u]
-			}
-		]
-		};
+        var option=makeop();
         option && myChart1.setOption(option);
     </script>
 </div>
 <p>&nbsp;</p>
-<p>编号：1.3L &nbsp; 2.Utw &nbsp; 3.Ndc &nbsp; 4.CWMM &nbsp; 5.Eug &nbsp; 6.Chy &nbsp; 7.氯化钠 &nbsp; 8.5U</p>
+<p>编号：1.CHPC &nbsp; 2.Utw &nbsp; 3.Ndc &nbsp; 4.CWMM &nbsp; 5.Eug &nbsp; 6.Chy &nbsp; 7.PTC &nbsp; 8.5U</p>
 	<center><div class="form-control">
     		<input type="value" required="" id="code1">
     		<label>
