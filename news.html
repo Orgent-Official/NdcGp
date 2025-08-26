@@ -22,6 +22,22 @@
 		</ul>
 	</head>
 	<body>
+		<script type="text/javascript">
+			if(typeof(Storage)!=="undefined")
+        	{
+        	    let nnn=Number(localStorage.money);
+        	    document.addEventListener("DOMContentLoaded", function(){
+        	        document.getElementById("cnt").innerText = "你好，"+localStorage.name+"。您还剩余约 " + nnn.toFixed(2) + " Orgent币。";
+        	        document.getElementById("cnt1").innerText = "您的Ndc ID当前还剩余 " + nnn.toFixed(2) + " Orgent币。";
+        	    });
+        	}
+        	else
+        	{
+        	    document.addEventListener("DOMContentLoaded", function() {
+        	        alert("您的设备可能不支持 localStorge，暂时无法正常使用 Ndc股票系统。")
+        	    });
+        	}
+		</script>
 		<h1>Ndc 新闻</h1>
     	<p></p>
     	<p></p>
