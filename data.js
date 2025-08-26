@@ -143,7 +143,7 @@ function buycheckname(id)
 		return "无";
 		break;
 	case 1:
-		return "CHPC";
+		return "AWM";
 		break;
 	case 2:
 		return "Utw";
@@ -169,6 +169,7 @@ function buycheckname(id)
 	}
 
 }
+
 
 
 
