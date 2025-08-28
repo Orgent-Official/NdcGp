@@ -1,3 +1,4 @@
+var g3=400;
 var _3l=118; //AWM
 var utw=1620;
 var ndc=600;
@@ -17,7 +18,7 @@ function makeop()
 				trigger: 'axis'
 			},
 			legend: {
-				data: ['AWM', 'Utw', 'Ndc','CWMM','Eug','Chy','PTC','5U']
+				data: ['AWM', 'Utw', 'Ndc','CWMM','Eug','Chy','PTC','5U','G3']
 			},
 			grid: {
 				left: '3%',
@@ -73,6 +74,11 @@ function makeop()
 				name: '5U',
 				type: 'line',
 				data: [117,116,117,118,116,110,120,_5u]
+			},
+			{
+				name: 'G3',
+				type: 'line',
+				data: [0,0,0,0,60,120,240,g3]
 			}
 		]
 		};
@@ -127,6 +133,9 @@ function buychecknowprice(id)
 	case 8:
 		return _5u;
 		break;
+	case 9:
+		return g3;
+			break;
 	}
 }
 
@@ -166,9 +175,13 @@ function buycheckname(id)
 	case 8:
 		return "5U";
 		break;
+	case 9:
+		return "G3";
+		break;
 	}
 
 }
+
 
 
 
