@@ -7,7 +7,7 @@ var chy=143;
 var nacl=456; //ptc
 var _5u=132;
 var eug=430;
-var ecc=93;
+var ecc=93; // ECC
 
 function makeop()
 {
@@ -193,6 +193,7 @@ function buycheckname(id)
 	}
 
 }
+
 
 
 
