@@ -7,6 +7,7 @@ var chy=143;
 var nacl=456; //ptc
 var _5u=132;
 var eug=430;
+var ecc=93;
 
 function makeop()
 {
@@ -18,7 +19,7 @@ function makeop()
 				trigger: 'axis'
 			},
 			legend: {
-				data: ['AWM', 'Utw', 'Ndc','CWMM','Eug','Chy','PTC','5U','G3']
+				data: ['AWM', 'Utw', 'Ndc','CWMM','Eug','Chy','PTC','5U','G3','ECC']
 			},
 			grid: {
 				left: '3%',
@@ -79,6 +80,11 @@ function makeop()
 				name: 'G3',
 				type: 'line',
 				data: [0,0,0,0,60,120,240,300,460,520,g3]
+			},
+			{
+				name: 'ECC',
+				type: 'line',
+				data: [40,50,40,30,60,70,65,86,90,120,ecc]
 			}
 		]
 		};
@@ -136,6 +142,9 @@ function buychecknowprice(id)
 	case 9:
 		return g3;
 			break;
+	case 10:
+			return ecc;
+			break;
 	}
 }
 
@@ -178,9 +187,13 @@ function buycheckname(id)
 	case 9:
 		return "G3";
 		break;
+	case 10:
+			return "ECC";
+			break;
 	}
 
 }
+
 
 
 
