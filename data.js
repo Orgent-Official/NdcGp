@@ -1,12 +1,12 @@
-var g3=700;
-var _3l=160; //AWM
-var utw=1780;
-var ndc=0;
-var cwmm=1000;
-var chy=151;
-var nacl=400; //ptc
-var _5u=100;
-var eug=450;
+var g3=690;
+var _3l=150; //AWM
+var utw=1781;
+var ndc=500;
+var cwmm=1001;
+var chy=152;
+var nacl=401; //ptc
+var _5u=160;
+var eug=0;
 var ecc=96; // ECC  
 
 function makeop()
@@ -74,7 +74,7 @@ function makeop()
 			{
 				name: '5U',
 				type: 'line',
-				data: [117,116,117,118,116,110,120,130,135,130,132,135,120,100_5u]
+				data: [117,116,117,118,116,110,120,130,135,130,132,135,120,100,_5u]
 			},
 			{
 				name: 'G3',
@@ -193,6 +193,7 @@ function buycheckname(id)
 	}
 
 }
+
 
 
 
