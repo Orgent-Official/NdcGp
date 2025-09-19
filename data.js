@@ -1,13 +1,13 @@
-var g3=599;
-var _3l=100; //AWM
-var utw=1720;
-var ndc=900;
-var cwmm=959;
-var chy=152;
+var g3=610;
+var _3l=96; //AWM
+var utw=1730;
+var ndc=990;
+var cwmm=958;
+var chy=151;
 var nacl=200; //ptc
-var _5u=120;
+var _5u=110;
 var eug=0;
-var ecc=98; // ECC  
+var ecc=96; // ECC  
 
 function makeop()
 {
@@ -19,7 +19,7 @@ function makeop()
 				trigger: 'axis'
 			},
 			legend: {
-				data: ['AWM', 'Utw', 'Vial','CWMM','Eug','Chy','PTC','5U','G3','ECC']
+				data: ['AWM', 'Utw', 'Vial','CWMM','Chy','PTC','5U','G3','ECC']
 			},
 			grid: {
 				left: '3%',
@@ -30,7 +30,7 @@ function makeop()
 			xAxis: {
 				type: 'category',
 				boundaryGap: false,
-				data: ['8.20', '8.21', '8.22', '8.23', '8.24', '8.25', '8.26', '8.27', '8.28', '8.29', '8.30', '8.31', '9.1', '9.4', '9.13', '当前']
+				data: [ '8.31', '9.1', '9.4', '9.13', '9.19', '当前']
 			},
 				yAxis: {
 				type: 'value'
@@ -39,52 +39,47 @@ function makeop()
 			{
 				name: 'AWM',
 				type: 'line',
-				data: [21,56,64,78,92,96,108,118,130,120,130,133,140,160,150,_3l]
+				data: [133,140,160,150,100,_3l]
 			},
 			{
 				name: 'Utw',
 				type: 'line',
-				data: [1954,1742,1756,1699,1600,1600,1640,1620,1680,1660,1712,1723,1790,1780,1781,utw]
+				data: [1723,1790,1780,1781,1720,utw]
 			},
 			{
 				name: 'Vial',
 				type: 'line',
-				data: [0,0,0,0,0,0,0,0,0,0,0,200,430,460,500,ndc]
+				data: [200,430,460,500,900,ndc]
 			},
 			{
 				name: 'CWMM',
 				type: 'line',
-				data: [1021,1000,950,900,880,921,922,926,960,956,976,975,992,1000,1001,cwmm]
-			},
-			{
-				name: 'Eug',
-				type: 'line',
-				data: [449,430,390,380,360,370,350,365,420,400,430,440,432,0,0,eug]
+				data: [975,992,1000,1001,959,cwmm]
 			},
 			{
 				name: 'Chy',
 				type: 'line',
-				data: [132,119,98,76,43,50,85,90,130,132,143,145,150,151,152,chy]
+				data: [145,150,151,152,152,chy]
 			},
 			{
 				name: 'PTC',
 				type: 'line',
-				data: [270,230,280,350,461,521,400,410,420,416,456,457,460,400,401,nacl]
+				data: [457,460,400,401,200,nacl]
 			},
 			{
 				name: '5U',
 				type: 'line',
-				data: [117,116,117,118,116,110,120,130,135,130,132,135,120,100,160,_5u]
+				data: [135,120,100,160,120,_5u]
 			},
 			{
 				name: 'G3',
 				type: 'line',
-				data: [0,0,0,0,60,120,240,300,460,520,570,620,660,700,690,g3]
+				data: [620,660,700,690,599,g3]
 			},
 			{
 				name: 'ECC',
 				type: 'line',
-				data: [40,50,40,30,60,70,65,86,90,120,102,98,93,96,96,ecc]
+				data: [98,93,96,96,98,ecc]
 			}
 		]
 		};
@@ -193,6 +188,7 @@ function buycheckname(id)
 	}
 
 }
+
 
 
 
