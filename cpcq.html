@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="NdcLogo4848.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Vial (Ndc) 虚拟股票系统</title>
+        <link rel="stylesheet" type="text/css" href="index_style.css">
+        <script type="text/javascript" src="echarts.js"></script>
+        <script type="text/javascript" src="data.js"></script>
+        <ul class="gray">
+            <li class="av"><img src="NdcLogo4848.ico"></li>
+            <li class="s"><a>Vial 虚拟股票系统</a></li>
+            <li class="av"><a href="index.html">主页</a></li>
+            <li class="av"><a href="news.html">新闻</a></li>
+            <li class="av"><a href="mygp.html">我的股票</a></li>
+            <li class="av"><a href="buy.html">购买股票</a></li>
+            <li class="av"><a href="upld.html">充值</a></li>
+            <li class="av"><a href="chnm.html">更改账户名</a></li>
+            <li class="av acc"><a href="cpcq.html">抽奖</a></li>
+            <li class="rightli av"><a href="https://space.bilibili.com/3461576468203796">Vial频道出品</a></li>
+            <li class="rightli s"><a id="cnt"></a></li>
+        </ul>
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .box {
+            width: 500px;
+            height: 500px;
+            margin: 10px auto;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: 5px solid black;
+            border-radius: 50%;
+            background: rgba(128, 128, 128, 0.49);
+            overflow: hidden;
+            position: relative;
+            transition: all 3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        }
+
+        .pointer {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9;
+        }
+
+        .pointer-bar {
+            width: 60px;
+            height: 25px;
+            background: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+
+        .pointer-cursor {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            left: 85px;
+            top: 50%;
+            transform: translate(-50%, -50%) rotateZ(45deg);
+            background: white;
+        }
+
+        .part {
+            height: 100%;
+            width: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform-origin: left center;
+            z-index: 1;
+        }
+
+        .bg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .title {
+            transform: translate(0, -50%);
+            transform-origin: left top;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            padding-left: 85px;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .winner {
+            font-size: 30px;
+            font-weight: bold;
+            height: 50px;
+        }
+
+        .history-list {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .history-item {
+            font-size: 14px;
+            margin: 10px;
+            padding: 5px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+            if(typeof(Storage)!=="undefined")
+            {
+                if(isNaN(Number(localStorage.money)))
+                {
+                    localStorage.money=0;
+                }
+                let nnn=Number(localStorage.money);
+                document.addEventListener("DOMContentLoaded", function(){
+                    document.getElementById("cnt").innerText = "你好，"+localStorage.name+"。您还剩余约 " + nnn.toFixed(2) + " Orgent币。";
+                    document.getElementById("cnt1").innerText = "您的Ndc ID当前还剩余 " + nnn.toFixed(2) + " Orgent币。";
+                });
+            }
+            else
+            {
+                document.addEventListener("DOMContentLoaded", function() {
+                    alert("您的设备可能不支持 localStorge，暂时无法正常使用 Ndc股票系统。")
+                });
+            }
+        </script>
+<div class="box">
+    <div class="main" ontransitionend="end()">
+        <div id="temp" class="part" style="display: none;">
+            <div class="bg"></div>
+            <div class="title"></div>
+        </div>
+    </div>
+
+    <div class="pointer">
+        <div class="pointer-bar"></div>
+        <div class="pointer-cursor"></div>
+    </div>
+</div>
+<p>&nbsp;</p>
+<button class="btn" onclick="Check()">来一发</button>
+<p>&nbsp;</p>
+<p>抽奖 10 Orgent币一次。Vial币就是Orgent币。点击按钮自动扣钱。</p>
+<p>&nbsp;</p>
+<div class="winner"></div>
+<div class="history-list"></div>
+<script type="text/javascript">
+    var list = [];
+    list.push({
+            title: "谢谢参与",
+            color: "rgb(255,0,0)"
+        });
+    list.push({
+            title: "50 Vial币",
+            color: "rgb(255,128,0)"
+        });
+    list.push({
+            title: "啥也没有",
+            color: "rgb(128,255,0)"
+        });
+    list.push({
+            title: "20 Vial币",
+            color: "rgb(0,0,255)"
+        });
+    list.push({
+            title: "没有中奖",
+            color: "rgb(255,0,255)"
+        });
+    list.push({
+            title: "10 Vial币",
+            color: "rgb(128,128,128)"
+        });
+    var main = document.querySelector('.main');
+    var temp = document.querySelector('#temp');
+    function random(num) {
+        return Math.floor(Math.random() * num);
+    }
+    var perAngle = 360 / list.length;
+    for (var j in list) {
+        var item = list[j];
+        var newNode = temp.cloneNode(true);
+        newNode.style.display = 'block';
+        newNode.style.transform = 'rotateZ(' + (perAngle * j + perAngle / 2) + 'deg)';
+        newNode.querySelector('.bg').style.background = item.color;
+        if (list.length > 2) {
+            var p = perAngle / 2;
+            var d = Math.tan(p * Math.PI / 180) * 100;
+            var x = (100 - d) / 2;
+            newNode.style.clipPath = `polygon(0% 50%, 100% ${x}%, 100% ${100 - x}%)`;
+        }
+        newNode.querySelector('.title').innerHTML = item.title;
+        main.appendChild(newNode);
+    }
+    var isRunning = false;
+    var rotate = 0;
+
+
+            function Check()
+            {
+                if(10>Number(localStorage.money))
+                {
+                    alert("余额不足。请充值。");
+                }
+                else
+                {
+                    localStorage.money=Number(localStorage.money)-10;
+                    alert("已扣除10 Orgent币，点击确定开始抽奖。")
+                    start();
+                }
+            }
+
+    function start() {
+        if (isRunning) {
+            console.warn('isRunning');
+            return;
+        }
+        isRunning = true;
+        document.querySelector('.winner').innerHTML = '';
+        var r;
+        r=random(360);
+        console.log(r);
+        rotate += r + 360 * 3;
+
+        main.style.transform = 'rotateZ(-' + rotate + 'deg)';
+    }
+    function end()
+    {
+        isRunning = false;
+        console.log(rotate);
+        var index = Math.floor(rotate / perAngle) % list.length;
+        var color = list[index].color;
+        var winner = list[index];
+        var strr=winner.title;
+        if(String(strr)!="谢谢参与"&&String(strr)!="啥也没有"&&String(strr)!="没有中奖")
+        {
+            alert("恭喜你，你中了 " + String(strr) + "，点击确定回到主页，奖金已加入你的账户。");
+            if(String(strr)=="10 Vial币")
+            {
+                localStorage.money=Number(localStorage.money)+10;
+            }
+            else if(String(strr)=="20 Vial币")
+            {
+                localStorage.money=Number(localStorage.money)+20;
+            }
+            else if(String(strr)=="50 Vial币")
+            {
+                localStorage.money=Number(localStorage.money)+50;
+            }
+            window.location.href="index.html";
+        }
+        else
+        {
+            alert("你没有中奖。点击确定跳转到主页。");
+            window.location.href="index.html";
+        }
+    }
+</script>
+</body>
+</html>
+
