@@ -4,7 +4,7 @@ var utw=1750;
 var ndc=1023;
 var cwmm=979;
 var chy=130;
-var nacl=200; //ptcfx
+var nacl=200; //uptc
 var _5u=100;
 var eug=0;
 var ecc=120; // ECC  
@@ -19,7 +19,7 @@ function makeop()
 				trigger: 'axis'
 			},
 			legend: {
-				data: ['AWM', 'Utw', 'Vial','CWMM','Chy','5U','3L','ECC']
+				data: ['AWM', 'Utw', 'Vial','CWMM','Chy','5U','3L','ECC','UPTC']
 			},
 			grid: {
 				left: '3%',
@@ -50,6 +50,11 @@ function makeop()
 				name: 'Vial',
 				type: 'line',
 				data: [200,430,460,500,900,990,ndc]
+			},
+			{
+				name: 'UPTC (PTC)',
+				type: 'line',
+				data: [0,0,0,0,100,230,nacl]
 			},
 			{
 				name: 'CWMM',
@@ -183,6 +188,7 @@ function buycheckname(id)
 	}
 
 }
+
 
 
 
