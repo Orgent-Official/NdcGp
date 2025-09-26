@@ -1,13 +1,13 @@
-var g3=610;
-var _3l=96; //AWM
-var utw=1730;
-var ndc=990;
-var cwmm=958;
-var chy=151;
-var nacl=200; //ptc
-var _5u=110;
+var g3=600;
+var _3l=94; //AWM
+var utw=1750;
+var ndc=1023;
+var cwmm=979;
+var chy=130;
+var nacl=200; //ptcfx
+var _5u=100;
 var eug=0;
-var ecc=96; // ECC  
+var ecc=120; // ECC  
 
 function makeop()
 {
@@ -19,7 +19,7 @@ function makeop()
 				trigger: 'axis'
 			},
 			legend: {
-				data: ['AWM', 'Utw', 'Vial','CWMM','Chy','PTC','5U','G3','ECC']
+				data: ['AWM', 'Utw', 'Vial','CWMM','Chy','5U','3L','ECC']
 			},
 			grid: {
 				left: '3%',
@@ -30,7 +30,7 @@ function makeop()
 			xAxis: {
 				type: 'category',
 				boundaryGap: false,
-				data: [ '8.31', '9.1', '9.4', '9.13', '9.19', '当前']
+				data: [ '8.31', '9.1', '9.4', '9.13', '9.19', '9.26', '当前']
 			},
 				yAxis: {
 				type: 'value'
@@ -39,47 +39,42 @@ function makeop()
 			{
 				name: 'AWM',
 				type: 'line',
-				data: [133,140,160,150,100,_3l]
+				data: [133,140,160,150,100,96,_3l]
 			},
 			{
 				name: 'Utw',
 				type: 'line',
-				data: [1723,1790,1780,1781,1720,utw]
+				data: [1723,1790,1780,1781,1720,1730,utw]
 			},
 			{
 				name: 'Vial',
 				type: 'line',
-				data: [200,430,460,500,900,ndc]
+				data: [200,430,460,500,900,990,ndc]
 			},
 			{
 				name: 'CWMM',
 				type: 'line',
-				data: [975,992,1000,1001,959,cwmm]
+				data: [975,992,1000,1001,959,958,cwmm]
 			},
 			{
 				name: 'Chy',
 				type: 'line',
-				data: [145,150,151,152,152,chy]
-			},
-			{
-				name: 'PTC',
-				type: 'line',
-				data: [457,460,400,401,200,nacl]
+				data: [145,150,151,152,152,151,chy]
 			},
 			{
 				name: '5U',
 				type: 'line',
-				data: [135,120,100,160,120,_5u]
+				data: [135,120,100,160,120,110,_5u]
 			},
 			{
-				name: 'G3',
+				name: '3L',
 				type: 'line',
-				data: [620,660,700,690,599,g3]
+				data: [620,660,700,690,599,610,g3]
 			},
 			{
 				name: 'ECC',
 				type: 'line',
-				data: [98,93,96,96,98,ecc]
+				data: [98,93,96,96,98,110,ecc]
 			}
 		]
 		};
@@ -188,6 +183,7 @@ function buycheckname(id)
 	}
 
 }
+
 
 
 
