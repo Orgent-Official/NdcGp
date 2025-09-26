@@ -19,7 +19,7 @@ function makeop()
 				trigger: 'axis'
 			},
 			legend: {
-				data: ['AWM', 'Utw', 'Vial','CWMM','Chy','5U','3L','ECC','UPTC']
+				data: ['AWM', 'Utw', 'Vial','CWMM','Chy','5U','3L','ECC','UPTC (PTC)']
 			},
 			grid: {
 				left: '3%',
@@ -188,6 +188,7 @@ function buycheckname(id)
 	}
 
 }
+
 
 
 
