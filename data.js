@@ -6,7 +6,7 @@ var cwmm=900;
 var chy=100;
 var nacl=250; //uptc
 var _5u=50;
-var eug=0;
+var eug=105;
 var ecc=140; // ECC  
 
 function makeop()
@@ -19,7 +19,7 @@ function makeop()
 				trigger: 'axis'
 			},
 			legend: {
-				data: ['AWM', 'Utw', 'Vial','CWMM','Chy','5U','3L','ECC','UPTC (PTC)']
+				data: ['AWM', 'Utw', 'Vial','CWMM','Chy','5U','3L','ECC','UPTC (PTC)','YMCM(YM)']
 			},
 			grid: {
 				left: '3%',
@@ -80,6 +80,11 @@ function makeop()
 				name: 'ECC',
 				type: 'line',
 				data: [98,93,96,96,98,110,120,ecc]
+			},
+			{
+				name: 'YMCM(YM)',
+				type: 'line',
+				data: [0,0,20,30,60,80,95,eug]
 			}
 		]
 		};
@@ -165,7 +170,7 @@ function buycheckname(id)
 		return "CWMM";
 		break;
 	case 5:
-		return "undefined";
+		return "YMCM(YM)";
 		break;
 	case 6:
 		return "Chy";
@@ -185,3 +190,4 @@ function buycheckname(id)
 	}
 
 }
+
