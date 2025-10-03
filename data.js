@@ -86,19 +86,16 @@ function makeop()
 	return option;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+document.oncontextmenu = function() {
+return false;
+}
+document.onkeydown = function(e) {
+if (e.keyCode == 123) {
+return false;
+} else if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+return false;
+}
+}
 
 var l1=130,l2=1540,l3=499,l4=920,l5=370,l6=43,l7=165,l8=116;
 
@@ -188,26 +185,3 @@ function buycheckname(id)
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
