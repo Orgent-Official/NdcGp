@@ -6,7 +6,7 @@ var cwmm=900;
 var chy=100;
 var nacl=250; //uptc
 var _5u=50;
-var eug=105;
+var eug=105; //ymcm
 var ecc=140; // ECC  
 
 function makeop()
@@ -190,4 +190,5 @@ function buycheckname(id)
 	}
 
 }
+
 
