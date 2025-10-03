@@ -23,6 +23,16 @@
 	</head>
 	<body>
     	<script type="text/javascript">
+			document.oncontextmenu = function() {
+return false;
+}
+document.onkeydown = function(e) {
+if (e.keyCode == 123) {
+return false;
+} else if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+return false;
+}
+}
         	if(typeof(Storage)!=="undefined")
         	{
         	    if(isNaN(Number(localStorage.money)))
@@ -111,6 +121,7 @@
 	</body>
 
 </html>
+
 
 
 
