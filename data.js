@@ -30,7 +30,7 @@ function makeop()
 			xAxis: {
 				type: 'category',
 				boundaryGap: false,
-				data: [ '8.31', '9.1', '9.4', '9.13', '9.19', '9.26', '当前']
+				data: [ '8.31', '9.1', '9.4', '9.13', '9.19', '9.26', '10.2', '当前']
 			},
 				yAxis: {
 				type: 'value'
@@ -188,6 +188,7 @@ function buycheckname(id)
 	}
 
 }
+
 
 
 
