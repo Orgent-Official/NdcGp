@@ -168,7 +168,7 @@ function buycheckname(id)
 		return "CWMM";
 		break;
 	case 5:
-		return "Eug";
+		return "undefined";
 		break;
 	case 6:
 		return "Chy";
@@ -180,7 +180,7 @@ function buycheckname(id)
 		return "5U";
 		break;
 	case 9:
-		return "G3";
+		return "3L(Lemon实验室)";
 		break;
 	case 10:
 			return "ECC";
@@ -188,6 +188,7 @@ function buycheckname(id)
 	}
 
 }
+
 
 
 
