@@ -1,13 +1,13 @@
-var g3=600;
-var _3l=94; //AWM
-var utw=1750;
-var ndc=1023;
-var cwmm=979;
-var chy=130;
-var nacl=200; //uptc
-var _5u=100;
+var g3=630;
+var _3l=80; //AWM
+var utw=1760;
+var ndc=1120;
+var cwmm=900;
+var chy=100;
+var nacl=250; //uptc
+var _5u=50;
 var eug=0;
-var ecc=120; // ECC  
+var ecc=140; // ECC  
 
 function makeop()
 {
@@ -39,47 +39,47 @@ function makeop()
 			{
 				name: 'AWM',
 				type: 'line',
-				data: [133,140,160,150,100,96,_3l]
+				data: [133,140,160,150,100,96,94,_3l]
 			},
 			{
 				name: 'Utw',
 				type: 'line',
-				data: [1723,1790,1780,1781,1720,1730,utw]
+				data: [1723,1790,1780,1781,1720,1730,1750,utw]
 			},
 			{
 				name: 'Vial',
 				type: 'line',
-				data: [200,430,460,500,900,990,ndc]
+				data: [200,430,460,500,900,990,1023,ndc]
 			},
 			{
 				name: 'UPTC (PTC)',
 				type: 'line',
-				data: [0,0,0,0,100,230,nacl]
+				data: [0,0,0,0,100,230,200,nacl]
 			},
 			{
 				name: 'CWMM',
 				type: 'line',
-				data: [975,992,1000,1001,959,958,cwmm]
+				data: [975,992,1000,1001,959,958,979,cwmm]
 			},
 			{
 				name: 'Chy',
 				type: 'line',
-				data: [145,150,151,152,152,151,chy]
+				data: [145,150,151,152,152,151,130,chy]
 			},
 			{
 				name: '5U',
 				type: 'line',
-				data: [135,120,100,160,120,110,_5u]
+				data: [135,120,100,160,120,110,100,_5u]
 			},
 			{
 				name: '3L',
 				type: 'line',
-				data: [620,660,700,690,599,610,g3]
+				data: [620,660,700,690,599,610,600,g3]
 			},
 			{
 				name: 'ECC',
 				type: 'line',
-				data: [98,93,96,96,98,110,ecc]
+				data: [98,93,96,96,98,110,120,ecc]
 			}
 		]
 		};
@@ -188,6 +188,7 @@ function buycheckname(id)
 	}
 
 }
+
 
 
 
