@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
+	<meta charset="utf-8">
 		<link rel="shortcut icon" href="NdcLogo4848.ico" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Vial (Ndc) 虚拟股票系统</title>
 		<link rel="stylesheet" type="text/css" href="index_style.css">
 		<script type="text/javascript" src="echarts.js"></script>
-		<script type="text/javascript" src="data.js"></script>
+		<script type="text/javascript" src="Data_Update.js"></script>
+        
 		<ul class="gray">
 			<li class="av"><img src="NdcLogo4848.ico"></li>
   			<li class="s"><a>Vial 虚拟股票系统</a></li>
@@ -129,7 +130,7 @@
         var chartDom = document.getElementById('first');
         var myChart = echarts.init(chartDom);
         var option;
-
+        load_data();
         option = {
         	title: {
         		text: '市场份额'
@@ -168,22 +169,28 @@
             },
             data: [
                 { value: utw, name: 'Utw' },
-                { value: ndc, name: 'Vial' },
+                { value: vial, name: 'Vial' },
                 { value: cwmm, name: 'CWMM' },
-				{ value: _5u, name: '5U' },
+				{ value: fivu, name: '5U' },
 				{ value: chy, name: 'Chy' },
                 { value: ecc, name: 'ECC' },
-				{ value: g3, name: '3L' }
+				{ value: lemon, name: 'Lemon实验室' }
             ]
             }
         ]
         };
         option && myChart.setOption(option);
-
         var chartDom = document.getElementById('second');
         var myChart1 = echarts.init(chartDom);
-        var option=makeop();
+        var option = makeop();
         option && myChart1.setOption(option);
+        function updateChart() {
+            if (myChart1) {
+                const option = makeop();
+                myChart1.setOption(option);
+            }
+        }
+        startRealTimeUpdate();
     </script>
 </div>
 <p>&nbsp;</p>
@@ -268,6 +275,7 @@
 	</body>
 
 </html>
+
 
 
 
