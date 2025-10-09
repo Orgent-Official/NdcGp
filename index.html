@@ -7,7 +7,8 @@
 		<title>Vial (Ndc) 虚拟股票系统</title>
 		<link rel="stylesheet" type="text/css" href="index_style.css">
 		<script type="text/javascript" src="echarts.js"></script>
-		<script type="text/javascript" src="data.js"></script>
+		<script type="text/javascript" src="Data_Update.js"></script>
+        
 		<ul class="gray">
 			<li class="av"><img src="NdcLogo4848.ico"></li>
   			<li class="s"><a>Vial 虚拟股票系统</a></li>
@@ -64,11 +65,13 @@
 	</head>
 	<body>
 		<script type="text/javascript">
+            //update_all();
 			if(typeof(Storage)!=="undefined")
         	{
         	    if(isNaN(Number(localStorage.money)))
     			{
     				localStorage.money=0;
+                    //init_dtbs();
     			}
     			if(isNaN(Number(localStorage.sel1)))
     			{
@@ -155,7 +158,7 @@
         var chartDom = document.getElementById('first');
         var myChart = echarts.init(chartDom);
         var option;
-
+        load_data();
         option = {
         	title: {
         		text: '市场份额'
@@ -194,22 +197,28 @@
             },
             data: [
                 { value: utw, name: 'Utw' },
-                { value: ndc, name: 'Vial' },
+                { value: vial, name: 'Vial' },
                 { value: cwmm, name: 'CWMM' },
-				{ value: _5u, name: '5U' },
+				{ value: fivu, name: '5U' },
 				{ value: chy, name: 'Chy' },
                 { value: ecc, name: 'ECC' },
-				{ value: g3, name: '3L' }
+				{ value: lemon, name: '3L' }
             ]
             }
         ]
         };
         option && myChart.setOption(option);
-
         var chartDom = document.getElementById('second');
         var myChart1 = echarts.init(chartDom);
         var option = makeop();
         option && myChart1.setOption(option);
+        function updateChart() {
+            if (myChart1) {
+                const option = makeop();
+                myChart1.setOption(option);
+            }
+        }
+        startRealTimeUpdate();
     </script>
 </div>
 <p>&nbsp;</p>
