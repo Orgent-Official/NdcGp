@@ -7,7 +7,7 @@
         <title>Vial (Ndc) 虚拟股票系统</title>
         <link rel="stylesheet" type="text/css" href="index_style.css">
         <script type="text/javascript" src="echarts.js"></script>
-        <script type="text/javascript" src="data.js"></script>
+        <script type="text/javascript" src="Data_Update.js"></script>
         <ul class="gray">
             <li class="av"><img src="NdcLogo4848.ico"></li>
             <li class="s"><a>Vial 虚拟股票系统</a></li>
@@ -95,45 +95,26 @@
         <div id="echarts">
         <div id="first"></div>
     <script>
+        var updateInterval1,updateInterval;
         window.onresize = function() {
             myChart.resize();
         };
         var chartDom = document.getElementById('first');
         var myChart = echarts.init(chartDom);
-        var option;
-        var option = {
-            title: {
-                text: '我购买的股票'
-            },
-                xAxis: {
-                    interval: 0,
-                    data: [buycheckname(localStorage.sel1),buycheckname(localStorage.sel2),buycheckname(localStorage.sel3)],
-                    axisLabel: {
-      interval: 0,
-      rotate: 0, 
-      margin: 20,
-      fontSize: 12,
-      formatter: function(value) {
-        if (value.length > 15) {
-          return value.substring(0, 15) + '...'; 
+        myChart.setOption(mygpp());
+        function updateChart1() {
+            if (myChart) {
+                const option = mygpp();
+                myChart.setOption(option);
+            }
+            console.log("更新了我的股票");
         }
-        return value;
-      }
-    }
-                },
-                yAxis: {},
-                series: [
-                    {
-                        type: 'bar',
-                        data: [localStorage.buy1,localStorage.buy2,localStorage.buy3]
-                    },
-                    {
-                        type: 'bar',
-                        data: [(buychecknowprice(localStorage.sel1)/localStorage.p1*1.000*localStorage.buy1),(buychecknowprice(localStorage.sel2)/localStorage.p2*1.000*localStorage.buy2),(buychecknowprice(localStorage.sel3)/localStorage.p3*1.000*localStorage.buy3)]
-                    }
-                ]  
-        };
-        option && myChart.setOption(option);
+        if (!updateInterval) {
+                updateInterval = setInterval(updateChart1, 1000);
+            }
+        if (!updateInterval1) {
+                updateInterval1 = setInterval(update_all, 1000);
+            }
     </script>
 </div>
 <p>&nbsp;</p>
