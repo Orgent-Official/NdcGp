@@ -1,3 +1,18 @@
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C', 'U'].includes(e.key)) {
+        e.preventDefault();
+        return false;
+    }
+});
+
 var llemon=630,lemon=630,bzlemon=0;
 var lvial=1120,vial=1120,bzvial=0;
 var lutw=1760,utw=1760,bzutw=0;
@@ -372,12 +387,12 @@ function makeop()
             },
   		xAxis: {
     		type: 'category',
-    		data: ['(1)AWM', '(2)Utw', '(3)Vial', '(4)CWMM', '(5)YMCM', '(6)Chy', '(7)PTC', '(8)5U', '(9)Lemon', '(10)ECC'],
+    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'YMCM', 'Chy', 'PTC', '5U', 'Lemon', 'ECC'],
     		axisLabel: {
       			interval: 0,
       			rotate: 0, 
       			margin: 20,
-      			fontSize: 11,
+      			fontSize: 10,
       			formatter: function(value) {
         			if (value.length > 15) {
           				return value.substring(0, 15) + '...'; 
@@ -431,7 +446,7 @@ function makeop()
             if (updateInterval) {
                 clearInterval(updateInterval);
                 updateInterval = null;
-                alert('已停止实时更新');
+                alert('已停止实时更新。执行 startRealTimeUpdate 来重新开始更新。');
             }
         }
 
