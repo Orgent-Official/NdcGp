@@ -367,14 +367,17 @@ function makeop()
 {
 	load_data();
 	option = {
+        title: {
+                text: '当前市值'
+            },
   		xAxis: {
     		type: 'category',
-    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'YMCM', 'Chy', 'UPTC', '5U', 'Lemon实验室', 'ECC'],
+    		data: ['(1)AWM', '(2)Utw', '(3)Vial', '(4)CWMM', '(5)YMCM', '(6)Chy', '(7)PTC', '(8)5U', '(9)Lemon', '(10)ECC'],
     		axisLabel: {
       			interval: 0,
       			rotate: 0, 
       			margin: 20,
-      			fontSize: 12,
+      			fontSize: 11,
       			formatter: function(value) {
         			if (value.length > 15) {
           				return value.substring(0, 15) + '...'; 
@@ -466,5 +469,58 @@ function mygpp()
                     }
                 ]  
         };
+    return option;
+}
+
+function btsheet()
+{
+    var option = {
+            title: {
+                text: '市场份额'
+            },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            top: '8%',
+            left: 'center'
+        },
+        series: [
+            {
+            name: '市场份额',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                show: true,
+                fontSize: '40',
+                fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                { value: utw, name: 'Utw' },
+                { value: vial, name: 'Vial' },
+                { value: cwmm, name: 'CWMM' },
+                { value: fivu, name: '5U' },
+                { value: chy, name: 'Chy' },
+                { value: ecc, name: 'ECC' },
+                { value: lemon, name: 'Lemon' }
+            ]
+            }
+        ]
+    };
     return option;
 }
