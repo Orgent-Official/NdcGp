@@ -157,57 +157,8 @@
         };
         var chartDom = document.getElementById('first');
         var myChart = echarts.init(chartDom);
-        var option;
         load_data();
-        option = {
-        	title: {
-        		text: '市场份额'
-        	},
-        tooltip: {
-            trigger: 'item'
-        },
-        legend: {
-            top: '8%',
-            left: 'center'
-        },
-        series: [
-            {
-            name: '市场份额',
-            type: 'pie',
-            radius: ['40%', '70%'],
-            avoidLabelOverlap: false,
-            itemStyle: {
-                borderRadius: 10,
-                borderColor: '#fff',
-                borderWidth: 2
-            },
-            label: {
-                show: false,
-                position: 'center'
-            },
-            emphasis: {
-                label: {
-                show: true,
-                fontSize: '40',
-                fontWeight: 'bold'
-                }
-            },
-            labelLine: {
-                show: false
-            },
-            data: [
-                { value: utw, name: 'Utw' },
-                { value: vial, name: 'Vial' },
-                { value: cwmm, name: 'CWMM' },
-				{ value: fivu, name: '5U' },
-				{ value: chy, name: 'Chy' },
-                { value: ecc, name: 'ECC' },
-				{ value: lemon, name: '3L' }
-            ]
-            }
-        ]
-        };
-        option && myChart.setOption(option);
+        myChart.setOption(btsheet());
         var chartDom = document.getElementById('second');
         var myChart1 = echarts.init(chartDom);
         var option = makeop();
@@ -216,6 +167,9 @@
             if (myChart1) {
                 const option = makeop();
                 myChart1.setOption(option);
+            }
+            if(myChart){
+                myChart.setOption(btsheet());
             }
         }
         startRealTimeUpdate();
