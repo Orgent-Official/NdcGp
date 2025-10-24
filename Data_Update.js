@@ -22,7 +22,7 @@ var lfivu=50,fivu=50,bzfivu=0;
 var lecc=140,ecc=140,bzecc=0;
 var lawm=80,awm=80,bzawm=0;
 var lchy=100,chy=100,bzchy=0;
-var lymcm=105,ymcm=105,bzymcm=0;
+var lymcm=50,ymcm=60,bzymcm=0;
 
 var chart;
 var updateInterval;
@@ -238,7 +238,8 @@ function update_all() {
         const tempValue = Number(chy) + (Math.random() > 0.5 ? change : -change);
         chy = Math.max(0, tempValue); // 确保不小于0
     }
-	lymcm=ymcm=bzymcm=0;
+	
+	lymcm=ymcm=75;
     save_data();
     updateChart();
     
@@ -346,7 +347,7 @@ function buycheckname(id)
 		return "CWMM";
 		break;
 	case 5:
-		return "YMCM";
+		return "vioz";
 		break;
 	case 6:
 		return "Chy";
@@ -376,7 +377,7 @@ function makeop()
             },
   		xAxis: {
     		type: 'category',
-    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'Chy', 'PTC', '5U', 'Lemon', 'ECC'],
+    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'vioz', 'Chy', 'PTC', '5U', 'Lemon', 'ECC'],
     		axisLabel: {
       			interval: 0,
       			rotate: 0, 
@@ -395,7 +396,7 @@ function makeop()
   		},
   		series: [
     		{
-      			data: [awm,utw,vial,cwmm,chy,uptc,fivu,lemon,ecc],
+      			data: [awm,utw,vial,cwmm,ymcm,chy,uptc,fivu,lemon,ecc],
       			type: 'bar',
       			showBackground: true,
       			label: {
@@ -528,4 +529,5 @@ function btsheet()
     };
     return option;
 }
+
 
