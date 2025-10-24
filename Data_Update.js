@@ -22,7 +22,7 @@ var lfivu=50,fivu=50,bzfivu=0;
 var lecc=140,ecc=140,bzecc=0;
 var lawm=80,awm=80,bzawm=0;
 var lchy=100,chy=100,bzchy=0;
-var lymcm=50,ymcm=60,bzymcm=0;
+var lymcm=50,ymcm=60,bzymcm=0; //vioz
 
 var chart;
 var updateInterval;
@@ -238,8 +238,17 @@ function update_all() {
         const tempValue = Number(chy) + (Math.random() > 0.5 ? change : -change);
         chy = Math.max(0, tempValue); // 确保不小于0
     }
-	
-	lymcm=ymcm=75;
+
+	// 更新 vioz
+	lymcm = ymcm;
+    if (bzymcm === 1) {
+        const change = getRandomChange();
+        ymcm = Number(ymcm) + change;
+    } else {
+        const change = getRandomChange();
+        const tempValue = Number(ymcm) + (Math.random() > 0.5 ? change : -change);
+        ymcm = Math.max(0, tempValue); // 确保不小于0
+    }
     save_data();
     updateChart();
     
@@ -529,5 +538,6 @@ function btsheet()
     };
     return option;
 }
+
 
 
