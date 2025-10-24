@@ -238,18 +238,7 @@ function update_all() {
         const tempValue = Number(chy) + (Math.random() > 0.5 ? change : -change);
         chy = Math.max(0, tempValue); // 确保不小于0
     }
-
-    // 更新ymcm
-    lymcm = ymcm;
-    if (bzymcm === 1) {
-        const change = getRandomChange();
-        ymcm = Number(ymcm) + change;
-    } else {
-        const change = getRandomChange();
-        const tempValue = Number(ymcm) + (Math.random() > 0.5 ? change : -change);
-        ymcm = Math.max(0, tempValue); // 确保不小于0
-    }
-
+	lymcm=ymcm=bzymcm=0;
     save_data();
     updateChart();
     
@@ -387,7 +376,7 @@ function makeop()
             },
   		xAxis: {
     		type: 'category',
-    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'YMCM', 'Chy', 'PTC', '5U', 'Lemon', 'ECC'],
+    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'Chy', 'PTC', '5U', 'Lemon', 'ECC'],
     		axisLabel: {
       			interval: 0,
       			rotate: 0, 
@@ -406,7 +395,7 @@ function makeop()
   		},
   		series: [
     		{
-      			data: [awm,utw,vial,cwmm,ymcm,chy,uptc,fivu,lemon,ecc],
+      			data: [awm,utw,vial,cwmm,chy,uptc,fivu,lemon,ecc],
       			type: 'bar',
       			showBackground: true,
       			label: {
@@ -539,3 +528,4 @@ function btsheet()
     };
     return option;
 }
+
