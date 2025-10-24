@@ -144,8 +144,8 @@
             if (document.getElementById("one").checked) {
                 const sel1 = localStorage.sel1;
                 const buy1 = Number(localStorage.buy1);
-                if (buy1 <= 0||(Number(Date.now())-Number(localStorage.d1))<=86400) {
-                    alert("无法卖出第1个股票或未满12小时");
+                if (buy1 <= 0) {
+                    alert("无法卖出第1个股票。");
                     return;
                 }
                 const nowPrice = buychecknowprice(sel1);
@@ -167,8 +167,8 @@
             if (document.getElementById("two").checked) {
                 const sel2 = localStorage.sel2;
                 const buy2 = Number(localStorage.buy2);
-                if (buy2 <= 0||(Number(Date.now())-Number(localStorage.d2))<=86400) {
-                    alert("无法卖出第2个股票或未满12小时");
+                if (buy2 <= 0) {
+                    alert("无法卖出第2个股票。");
                     return;
                 }
                 const nowPrice = buychecknowprice(sel2);
@@ -193,8 +193,8 @@
             {
                 const sel3 = localStorage.sel3;
                 const buy3 = Number(localStorage.buy3);
-                if (buy3 <= 0||(Number(Date.now())-Number(localStorage.d3))<=86400) {
-                    alert("无法卖出第3个股票或未满12小时");
+                if (buy3 <= 0) {
+                    alert("无法卖出第3个股票。");
                     return;
                 }
                 const nowPrice = buychecknowprice(sel3);
@@ -229,6 +229,7 @@
     </body>
 
 </html>
+
 
 
 
