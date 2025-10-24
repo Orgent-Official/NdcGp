@@ -73,6 +73,14 @@
     				localStorage.money=0;
                     //init_dtbs();
     			}
+
+				// 更改初始市值或修改公司 check标签
+				if(isNaN(Number(localStorage.check1)))
+    			{
+    				localStorage.check1=0;
+					init_dtbs();
+    			}
+
     			if(isNaN(Number(localStorage.sel1)))
     			{
     				localStorage.sel1=0;
@@ -181,6 +189,7 @@
 	</body>
 
 </html>
+
 
 
 
