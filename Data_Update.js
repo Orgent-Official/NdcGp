@@ -13,16 +13,20 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-var llemon=900,lemon=900,bzlemon=0;
-var lvial=1120,vial=1120,bzvial=0;
-var lutw=1760,utw=1760,bzutw=0;
-var lcwmm=100,cwmm=100,bzcwmm=0;
-var luptc=250,uptc=250,bzuptc=0;
-var lfivu=10,fivu=10,bzfivu=0;
-var lecc=140,ecc=140,bzecc=0;
-var lawm=80,awm=80,bzawm=0;
-var lchy=40,chy=40,bzchy=0;  // HSF
-var lymcm=50,ymcm=60,bzymcm=0; // UVS
+var llemon=900,lemon=900,bzlemon=0; // Lemon
+var lvial=1100,vial=1100,bzvial=0; // Vial
+var lutw=1500,utw=1500,bzutw=0; // Utw
+var lcwmm=100,cwmm=100,bzcwmm=0; // CWMM
+var luptc=100,uptc=100,bzuptc=0; // PTC
+var lfivu=10,fivu=10,bzfivu=0; // 5U
+var lecc=140,ecc=140,bzecc=0; // ECC
+var lawm=80,awm=80,bzawm=0; // AWM
+var lhsf=40,hsf=40,bzhsf=0; // HSF
+var luvs=50,uvs=60,bzuvs=0; // UVS
+var lubn=50,ubn=50,bzubn=0; // Ubn
+var lforest=50,forest=50,bzforest=50; // FOREST
+var lcuo=200,cuo=200,bzcuo=0; // CuO
+var logn=30,ogn=30,bzogn=0; // Ognesson
 
 var chart;
 var updateInterval;
@@ -53,12 +57,24 @@ function init_dtbs()
     localStorage.lawm = lawm;
     localStorage.awm = awm;
     localStorage.bzawm = bzawm;
-    localStorage.lchy = lchy;
-    localStorage.chy = chy;
-    localStorage.bzchy = bzchy;
-    localStorage.lymcm = lymcm;
-    localStorage.ymcm = ymcm;
-    localStorage.bzymcm = bzymcm;
+    localStorage.lhsf = lhsf;
+    localStorage.hsf = hsf;
+    localStorage.bzhsf = bzhsf;
+    localStorage.luvs = luvs;
+    localStorage.uvs = uvs;
+    localStorage.bzuvs = bzuvs;
+    localStorage.lubn = lubn;
+    localStorage.ubn = ubn;
+    localStorage.bzubn = bzubn;
+    localStorage.lforest = lforest;
+    localStorage.forest = forest;
+    localStorage.bzforest = bzforest;
+    localStorage.lcuo = lcuo;
+    localStorage.cuo = cuo;
+    localStorage.bzcuo = bzcuo;
+    localStorage.logn = logn;
+    localStorage.ogn = ogn;
+    localStorage.bzogn = bzogn;
 }
 
 function save_data()
@@ -87,12 +103,24 @@ function save_data()
     localStorage.lawm = Number(lawm);
     localStorage.awm = Number(awm);
     localStorage.bzawm = Number(bzawm);
-    localStorage.lchy = Number(lchy);
-    localStorage.chy = Number(chy);
-    localStorage.bzchy = Number(bzchy);
-    localStorage.lymcm = Number(lymcm);
-    localStorage.ymcm = Number(ymcm);
-    localStorage.bzymcm = Number(bzymcm);
+    localStorage.lhsf = Number(lhsf);
+    localStorage.hsf = Number(hsf);
+    localStorage.bzhsf = Number(bzhsf);
+    localStorage.luvs = Number(luvs);
+    localStorage.uvs = Number(uvs);
+    localStorage.bzuvs = Number(bzuvs);
+    localStorage.lubn = Number(lubn);
+    localStorage.ubn = Number(ubn);
+    localStorage.bzubn = Number(bzubn);
+    localStorage.lforest = Number(lforest);
+    localStorage.forest = Number(forest);
+    localStorage.bzforest = Number(bzforest);
+    localStorage.lcuo = Number(lcuo);
+    localStorage.cuo = Number(cuo);
+    localStorage.bzcuo = Number(bzcuo);
+    localStorage.logn = Number(logn);
+    localStorage.ogn = Number(ogn);
+    localStorage.bzogn = Number(bzogn);
 }
 
 function load_data()
@@ -125,12 +153,24 @@ function load_data()
     lawm = Number(localStorage.lawm) || lawm;
     awm = Number(localStorage.awm) || awm;
     bzawm = Number(localStorage.bzawm) || bzawm;
-    lchy = Number(localStorage.lchy) || lchy;
-    chy = Number(localStorage.chy) || chy;
-    bzchy = Number(localStorage.bzchy) || bzchy;
-    lymcm = Number(localStorage.lymcm) || lymcm;
-    ymcm = Number(localStorage.ymcm) || ymcm;
-    bzymcm = Number(localStorage.bzymcm) || bzymcm;
+    lhsf = Number(localStorage.lhsf) || lhsf;
+    hsf = Number(localStorage.hsf) || hsf;
+    bzhsf = Number(localStorage.bzhsf) || bzhsf;
+    luvs = Number(localStorage.luvs) || luvs;
+    uvs = Number(localStorage.uvs) || uvs;
+    bzuvs = Number(localStorage.bzuvs) || bzuvs;
+    logn = Number(localStorage.logn) || logn;
+    ogn = Number(localStorage.ogn) || ogn;
+    bzogn = Number(localStorage.bzogn) || bzogn;
+    lcuo = Number(localStorage.lcuo) || lcuo;
+    cuo = Number(localStorage.cuo) || cuo;
+    bzcuo = Number(localStorage.bzcuo) || bzcuo;
+    lforest = Number(localStorage.lforest) || lforest;
+    forest = Number(localStorage.forest) || forest;
+    bzforest = Number(localStorage.bzforest) || bzforest;
+    lubn = Number(localStorage.lubn) || lubn;
+    ubn = Number(localStorage.ubn) || ubn;
+    bzubn = Number(localStorage.bzubn) || bzubn;
 }
 
 function update_all() {
@@ -229,25 +269,69 @@ function update_all() {
     }
 
     // 更新 HSF
-    lchy = chy;
-    if (bzchy === 1) {
+    lhsf = hsf;
+    if (bzhsf === 1) {
         const change = getRandomChange();
-        chy = Number(chy) + change;
+        hsf = Number(hsf) + change;
     } else {
         const change = getRandomChange();
-        const tempValue = Number(chy) + (Math.random() > 0.5 ? change : -change);
-        chy = Math.max(0, tempValue); // 确保不小于0
+        const tempValue = Number(hsf) + (Math.random() > 0.5 ? change : -change);
+        hsf = Math.max(0, tempValue); // 确保不小于0
     }
 
 	// 更新 UVS
-	lymcm = ymcm;
-    if (bzymcm === 1) {
+	luvs = uvs;
+    if (bzuvs === 1) {
         const change = getRandomChange();
-        ymcm = Number(ymcm) + change;
+        uvs = Number(uvs) + change;
     } else {
         const change = getRandomChange();
-        const tempValue = Number(ymcm) + (Math.random() > 0.5 ? change : -change);
-        ymcm = Math.max(0, tempValue); // 确保不小于0
+        const tempValue = Number(uvs) + (Math.random() > 0.5 ? change : -change);
+        uvs = Math.max(0, tempValue); // 确保不小于0
+    }
+
+    // 更新 ubn
+    lubn = ubn;
+    if (bzubn === 1) {
+        const change = getRandomChange();
+        ubn = Number(ubn) + change;
+    } else {
+        const change = getRandomChange();
+        const tempValue = Number(ubn) + (Math.random() > 0.5 ? change : -change);
+        ubn = Math.max(0, tempValue); // 确保不小于0
+    }
+
+    // 更新 forest
+    lforest = forest;
+    if (bzforest === 1) {
+        const change = getRandomChange();
+        forest = Number(forest) + change;
+    } else {
+        const change = getRandomChange();
+        const tempValue = Number(forest) + (Math.random() > 0.5 ? change : -change);
+        forest = Math.max(0, tempValue); // 确保不小于0
+    }
+
+    // 更新 cuo
+    lcuo = cuo;
+    if (bzcuo === 1) {
+        const change = getRandomChange();
+        cuo = Number(cuo) + change;
+    } else {
+        const change = getRandomChange();
+        const tempValue = Number(cuo) + (Math.random() > 0.5 ? change : -change);
+        cuo = Math.max(0, tempValue); // 确保不小于0
+    }
+
+    // 更新 ogn
+    logn = ogn;
+    if (bzogn === 1) {
+        const change = getRandomChange();
+        ogn = Number(ogn) + change;
+    } else {
+        const change = getRandomChange();
+        const tempValue = Number(ogn) + (Math.random() > 0.5 ? change : -change);
+        ogn = Math.max(0, tempValue); // 确保不小于0
     }
     save_data();
     updateChart();
@@ -275,10 +359,10 @@ function buychecknowprice(id)
 		return cwmm;
 		break;
 	case 5:
-		return ymcm;
+		return uvs;
 		break;
 	case 6:
-		return chy;
+		return hsf;
 		break;
 	case 7:
 		return uptc;
@@ -292,6 +376,18 @@ function buychecknowprice(id)
 	case 10:
 		return ecc;
 		break;
+    case 11:
+        return ubn;
+        break;
+    case 12:
+        return forest;
+        break;
+    case 13:
+        return cuo;
+        break;
+    case 14:
+        return ogn;
+        break;
 	}
 }
 
@@ -316,10 +412,10 @@ function buycheckpastprice(id)
 		return lcwmm;
 		break;
 	case 5:
-		return lymcm;
+		return luvs;
 		break;
 	case 6:
-		return lchy;
+		return lhsf;
 		break;
 	case 7:
 		return luptc;
@@ -333,6 +429,18 @@ function buycheckpastprice(id)
 	case 10:
 		return lecc;
 		break;
+    case 11:
+        return lubn;
+        break;
+    case 12:
+        return lforest;
+        break;
+    case 13:
+        return lcuo;
+        break;
+    case 14:
+        return logn;
+        break;
 	}
 }
 
@@ -368,11 +476,23 @@ function buycheckname(id)
 		return "5U";
 		break;
 	case 9:
-		return "Lemon实验室";
+		return "Lemon";
 		break;
 	case 10:
 		return "ECC";
 		break;
+    case 11:
+        return "Ubn";
+        break;
+    case 12:
+        return "FOREST";
+        break;
+    case 13:
+        return "CuO";
+        break;
+    case 14:
+        return "Ognesson";
+        break;
 	}
 
 }
@@ -386,7 +506,7 @@ function makeop()
             },
   		xAxis: {
     		type: 'category',
-    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'UVS', 'HSF', 'PTC', '5U', 'Lemon', 'ECC'],
+    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'UVS', 'HSF', 'PTC', '5U', 'Lemon', 'ECC', 'Ubn', 'FOREST', 'CuO', 'Ognesson'],
     		axisLabel: {
       			interval: 0,
       			rotate: 0, 
@@ -405,7 +525,7 @@ function makeop()
   		},
   		series: [
     		{
-      			data: [awm,utw,vial,cwmm,ymcm,chy,uptc,fivu,lemon,ecc],
+      			data: [awm,utw,vial,cwmm,uvs,hsf,uptc,fivu,lemon,ecc,ubn,forest,cuo,ogn],
       			type: 'bar',
       			showBackground: true,
       			label: {
@@ -528,20 +648,14 @@ function btsheet()
                 { value: utw, name: 'Utw' },
                 { value: vial, name: 'Vial' },
                 { value: cwmm, name: 'CWMM' },
-                { value: fivu, name: '5U' },
-                { value: chy, name: 'HSF' },
+                { value: cuo, name: 'CuO' },
+                { value: hsf, name: 'HSF' },
                 { value: ecc, name: 'ECC' },
-                { value: lemon, name: 'Lemon' }
+                { value: lemon, name: 'Lemon' },
+                { value: awm, name: 'AWM' }
             ]
             }
         ]
     };
     return option;
 }
-
-
-
-
-
-
-
