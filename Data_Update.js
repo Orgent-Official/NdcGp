@@ -16,7 +16,7 @@ document.addEventListener('keydown', function(e) {
 var llemon=630,lemon=630,bzlemon=0;
 var lvial=1120,vial=1120,bzvial=0;
 var lutw=1760,utw=1760,bzutw=0;
-var lcwmm=960,cwmm=960,bzcwmm=0;
+var lcwmm=100,cwmm=100,bzcwmm=0;
 var luptc=250,uptc=250,bzuptc=0;
 var lfivu=50,fivu=50,bzfivu=0;
 var lecc=140,ecc=140,bzecc=0;
@@ -239,7 +239,7 @@ function update_all() {
         chy = Math.max(0, tempValue); // 确保不小于0
     }
 
-	// 更新 vioz
+	// 更新 UVS
 	lymcm = ymcm;
     if (bzymcm === 1) {
         const change = getRandomChange();
@@ -538,6 +538,7 @@ function btsheet()
     };
     return option;
 }
+
 
 
 
