@@ -13,16 +13,16 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-var llemon=630,lemon=630,bzlemon=0;
+var llemon=900,lemon=900,bzlemon=0;
 var lvial=1120,vial=1120,bzvial=0;
 var lutw=1760,utw=1760,bzutw=0;
 var lcwmm=100,cwmm=100,bzcwmm=0;
 var luptc=250,uptc=250,bzuptc=0;
-var lfivu=50,fivu=50,bzfivu=0;
+var lfivu=10,fivu=10,bzfivu=0;
 var lecc=140,ecc=140,bzecc=0;
 var lawm=80,awm=80,bzawm=0;
-var lchy=100,chy=100,bzchy=0;  // VGT
-var lymcm=50,ymcm=60,bzymcm=0; //vioz
+var lchy=40,chy=40,bzchy=0;  // HSF
+var lymcm=50,ymcm=60,bzymcm=0; // UVS
 
 var chart;
 var updateInterval;
@@ -228,7 +228,7 @@ function update_all() {
         awm = Math.max(0, tempValue); // 确保不小于0
     }
 
-    // 更新 VGT
+    // 更新 HSF
     lchy = chy;
     if (bzchy === 1) {
         const change = getRandomChange();
@@ -359,7 +359,7 @@ function buycheckname(id)
 		return "UVS";
 		break;
 	case 6:
-		return "VGT";
+		return "HSF";
 		break;
 	case 7:
 		return "PTC";
@@ -386,7 +386,7 @@ function makeop()
             },
   		xAxis: {
     		type: 'category',
-    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'UVS', 'VGT', 'PTC', '5U', 'Lemon', 'ECC'],
+    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'UVS', 'HSF', 'PTC', '5U', 'Lemon', 'ECC'],
     		axisLabel: {
       			interval: 0,
       			rotate: 0, 
@@ -529,7 +529,7 @@ function btsheet()
                 { value: vial, name: 'Vial' },
                 { value: cwmm, name: 'CWMM' },
                 { value: fivu, name: '5U' },
-                { value: chy, name: 'VGT' },
+                { value: chy, name: 'HSF' },
                 { value: ecc, name: 'ECC' },
                 { value: lemon, name: 'Lemon' }
             ]
@@ -538,6 +538,7 @@ function btsheet()
     };
     return option;
 }
+
 
 
 
