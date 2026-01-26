@@ -356,7 +356,7 @@ function buycheckname(id)
 		return "CWMM";
 		break;
 	case 5:
-		return "vioz";
+		return "UVS";
 		break;
 	case 6:
 		return "VGT";
@@ -386,7 +386,7 @@ function makeop()
             },
   		xAxis: {
     		type: 'category',
-    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'vioz', 'VGT', 'PTC', '5U', 'Lemon', 'ECC'],
+    		data: ['AWM', 'Utw', 'Vial', 'CWMM', 'UVS', 'VGT', 'PTC', '5U', 'Lemon', 'ECC'],
     		axisLabel: {
       			interval: 0,
       			rotate: 0, 
@@ -538,6 +538,7 @@ function btsheet()
     };
     return option;
 }
+
 
 
 
